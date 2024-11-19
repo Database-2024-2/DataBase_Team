@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soccer Database</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #1e90ff;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a.logo {
+      text-decoration: none;
+      color: white;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .bottom-row {
+      margin-top: 20px;
+    }
+
+    .box {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #1e90ff;
+    }
+
+    .data-center, .club-analytics, .player-records {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .data-center img, 
+    .club-analytics img,
+    .player-records img {
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .stats-table th, .stats-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .stats-table th {
+      background-color: #1e90ff;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #1e90ff;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Soccer Database</a>
+  <nav>
+    <a href="#">데이터 센터</a>
+    <a href="#">구단</a>
+  </nav>
+</header>
+
+<div class="container">
+  <!-- 상단 두 개의 섹션 -->
+  <div class="top-row">
+    <!-- Data Center Section -->
+    <div class="box" onclick="window.location.href='data-center-details.html'">
+      <h2>Data Center</h2>
+      <div class="data-center">
+        <img src="team1-logo.png" alt="Team 1">
+        <div>
+          <p><strong>울산</strong> vs <strong>수원</strong></p>
+          <p>최근 전적: W W D L</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Club Analytics Section -->
+    <div class="box" onclick="window.location.href='club-analytics-details.html'">
+      <h2>Club Analytics</h2>
+      <div class="club-analytics">
+        <img src="club-icon.png" alt="Club Icon">
+        <div>
+          <p>승리: 12</p>
+          <p>득점: 33 | 실점: 17</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 Player Records 섹션 -->
+  <div class="bottom-row">
+    <div class="box" onclick="window.location.href='player-records-details.html'">
+      <h2>Player Records</h2>
+      <div class="player-records">
+        <img src="player1-photo.png" alt="Player Photo">
+        <div>
+          <p><strong>무고사</strong> (득점: 15)</p>
+          <p>평균 경기당 득점: 0.41</p>
+        </div>
+      </div>
+      <!-- Example Stats Table -->
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>선수</th>
+            <th>구단</th>
+            <th>득점</th>
+            <th>경기당</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2</td>
+            <td>일류첸코</td>
+            <td>서울</td>
+            <td>14</td>
+            <td>0.39</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>이상헌</td>
+            <td>강원</td>
+            <td>13</td>
+            <td>0.36</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>이동경</td>
+            <td>김천</td>
+            <td>12</td>
+            <td>0.48</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Soccer Database. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
