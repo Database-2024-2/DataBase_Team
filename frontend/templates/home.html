@@ -124,96 +124,61 @@
   </style>
 </head>
 <body>
-
-<header>
-  <a href="index.html" class="logo">Soccer Database</a>
-  <nav>
-    <a href="#">데이터 센터</a>
-    <a href="#">구단</a>
-  </nav>
-</header>
-
-<div class="container">
-  <!-- 상단 두 개의 섹션 -->
-  <div class="top-row">
-    <!-- Data Center Section -->
-    <div class="box" onclick="window.location.href='data-center-details.html'">
-      <h2>Data Center</h2>
-      <div class="data-center">
-        <img src="team1-logo.png" alt="Team 1">
-        <div>
-          <p><strong>울산</strong> vs <strong>수원</strong></p>
-          <p>최근 전적: W W D L</p>
+  <header>
+    <a href="/" class="logo">Soccer Database</a>
+    <nav>
+      <a href="/match">매치 페이지</a>
+      <a href="/club-analytics">구단 분석</a>
+      <a href="/player-stats">선수 지표</a>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <!-- 상단 두 개의 섹션 -->
+    <div class="top-row">
+      <!-- Data Center Section -->
+      <div class="box" onclick="window.location.href='/match'">
+        <h2>매치 페이지</h2>
+        <div class="data-center">
+          <img src="static/images/team1-logo.png" alt="Team 1">
+          <div>
+            <p><strong>울산</strong> vs <strong>수원</strong></p>
+            <p>최근 전적: W W D L</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Club Analytics Section -->
+      <div class="box" onclick="window.location.href='/club-analytics'">
+        <h2>구단 분석</h2>
+        <div class="구단 분석">
+          <img src="static/images/club-icon.png" alt="Club Icon">
+          <div>
+            <p>승리: 12</p>
+            <p>득점: 33 | 실점: 17</p>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Club Analytics Section -->
-    <div class="box" onclick="window.location.href='club-analytics-details.html'">
-      <h2>Club Analytics</h2>
-      <div class="club-analytics">
-        <img src="club-icon.png" alt="Club Icon">
-        <div>
-          <p>승리: 12</p>
-          <p>득점: 33 | 실점: 17</p>
+  
+    <!-- 하단 Player Records 섹션 -->
+    <div class="bottom-row">
+      <div class="box" onclick="window.location.href='/player-stats'">
+        <h2>선수 지표</h2>
+        <div class="player-records">
+          <img src="static/images/player1-photo.png" alt="Player Photo">
+          <div>
+            <p><strong>무고사</strong> (득점: 15)</p>
+            <p>평균 경기당 득점: 0.41</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- 하단 Player Records 섹션 -->
-  <div class="bottom-row">
-    <div class="box" onclick="window.location.href='player-records-details.html'">
-      <h2>Player Records</h2>
-      <div class="player-records">
-        <img src="player1-photo.png" alt="Player Photo">
-        <div>
-          <p><strong>무고사</strong> (득점: 15)</p>
-          <p>평균 경기당 득점: 0.41</p>
-        </div>
-      </div>
-      <!-- Example Stats Table -->
-      <table class="stats-table">
-        <thead>
-          <tr>
-            <th>순위</th>
-            <th>선수</th>
-            <th>구단</th>
-            <th>득점</th>
-            <th>경기당</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2</td>
-            <td>일류첸코</td>
-            <td>서울</td>
-            <td>14</td>
-            <td>0.39</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>이상헌</td>
-            <td>강원</td>
-            <td>13</td>
-            <td>0.36</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>이동경</td>
-            <td>김천</td>
-            <td>12</td>
-            <td>0.48</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <p>&copy; 2024 Soccer Database. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+  
+  <footer>
+    <p>&copy; 2024 Soccer Database. All rights reserved.</p>
+  </footer>
+  
+  </body>
+  </html>
