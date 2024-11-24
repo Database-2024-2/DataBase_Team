@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-left: 50px;
+        }
+
+        table {
+            margin: 50px 50px;
+            width: calc(100% - 100px);
+            max-width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            margin-top: 40px;
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .button-container button {
+            width: 120px;
+            height: 50px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px;
+        }
+
+
+        .button-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-container span {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .button-container img {
+            max-width: 90%;
+            max-height: 90%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/frontend/home.html" class="logo">Soccer Database</a>
+    </header>
+
+    <h1>구단 분석</h1>
+    <div class="button-container">
+        <div class="button-wrapper">
+            <button data-team-id="1">
+                <img src="/frontend/images/teamId_1.png" alt="팀 1">
+            </button>
+            <span>강원 FC</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="2">
+                <img src="/frontend/images/teamId_2.png" alt="팀 2">
+            </button>
+            <span>광주 FC</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="3">
+                <img src="/frontend/images/teamId_3.png" alt="팀 3">
+            </button>
+            <span>대구 FC</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="4">
+                <img src="/frontend/images/teamId_4.png" alt="팀 4">
+            </button>
+            <span>대전 하나 시티즌</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="5">
+                <img src="/frontend/images/teamId_5.png" alt="팀 5">
+            </button>
+            <span>FC 서울</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="6">
+                <img src="/frontend/images/teamId_6.png" alt="팀 6">
+            </button>
+            <span>수원 삼성</span>
+        </div>
+    </div>
+    <div class="button-container">
+        <div class="button-wrapper">
+            <button data-team-id="7">
+                <img src="/frontend/images/teamId_7.png" alt="팀 7">
+            </button>
+            <span>수원 FC</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="8">
+                <img src="/frontend/images/teamId_8.png" alt="팀 8">
+            </button>
+            <span>울산 현대</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="9">
+                <img src="/frontend/images/teamId_9.png" alt="팀 9">
+            </button>
+            <span>인천 유나이티드</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="10">
+                <img src="/frontend/images/teamId_10.png" alt="팀 10">
+            </button>
+            <span>전북 현대</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="11">
+                <img src="/frontend/images/teamId_11.png" alt="팀 11">
+            </button>
+            <span>제주 유나이티드</span>
+        </div>
+        <div class="button-wrapper">
+            <button data-team-id="12">
+                <img src="/frontend/images/teamId_12.png" alt="팀 12">
+            </button>
+            <span>포항 스틸러스</span>
+        </div>
+    </div>
+    <table id="team-table">
+        <thead>
+            <tr>
+                <th>팀명</th>
+                <th>전력</th>
+                <th>승률</th>
+                <th>선호 전략</th>
+                <th>포메이션</th>
+                <th>코치</th>
+                <th>평균 득점</th>
+                <th>평균 실점</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <footer>
+        <p>&copy; 2024 Soccer Database. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let teamsData = [];
+
+        fetch('/backend/data/team.csv')
+            .then(response => response.text())
+            .then(data => {
+                const rows = data.split('\n').slice(1);
+                teamsData = rows.map(row => row.split(','));
+                populateTable(teamsData);
+            })
+            .catch(error => console.error(error));
+
+        function populateTable(data) {
+            const tableBody = document.querySelector('#team-table tbody');
+            tableBody.innerHTML = '';
+            data.forEach(row => {
+                if (row.length < 9) return; // 빈 데이터 방지
+                const tr = document.createElement('tr');
+                row.slice(1).forEach(col => {
+                    const td = document.createElement('td');
+                    td.textContent = col;
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+        }
+        const buttons = document.querySelectorAll('.button-container button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const teamId = button.getAttribute('data-team-id');
+                const filteredData = teamsData.filter(row => row[0] === teamId);
+                populateTable(filteredData);
+            });
+        });
+    </script>
+</body>
+
+</html>
